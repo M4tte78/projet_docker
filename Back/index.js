@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
     res.json('Hello World!');
 });
 
-app.use('/github', githubRoutes);
+app.use('/repos', githubRoutes);
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');

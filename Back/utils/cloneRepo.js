@@ -6,8 +6,11 @@ import fs from 'fs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const cloneRepo = async (repoUrl) => {
-  const repoName = repoUrl.split('/').pop().replace('.git', '');
-  const targetPath = join(__dirname, '..', 'clonedRepositories', repoName);
+  const partiesUrl = repoUrl.split("/");
+  const nomDuOwner = partiesUrl[partiesUrl.length - 2];
+  const nomAvecGit = partiesUrl[partiesUrl.length - 1];
+  const nomProjet = nomAvecGit.replace(".git", "");
+  const targetPath = join(__dirname, "..", "clonedRepositories", nomProjet);
 
   if (fs.existsSync(targetPath)) {
     fs.rmSync(targetPath, { recursive: true, force: true });
@@ -15,7 +18,7 @@ const cloneRepo = async (repoUrl) => {
 
   const git = simpleGit();
   await git.clone(repoUrl, targetPath);
-  return { success: true, repoName };
+  return { success: true, nomProjet, nomDuOwner };
 };
 
 export { cloneRepo };
