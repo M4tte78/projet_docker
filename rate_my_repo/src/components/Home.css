@@ -1,0 +1,279 @@
+
+body {
+    
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        background-color: #06070a;
+    
+        color: #1d1f20;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    
+    .background-animations {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .star {
+        position: absolute;
+        background-color: #58a6ff;
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: twinkle infinite;
+    }
+
+    .branch {
+        position: absolute;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(88, 166, 255, 0.7), transparent);
+        transform-origin: left center;
+        animation: pulse infinite;
+    }
+
+    @keyframes twinkle {
+        0% { opacity: 0.2; }
+        50% { opacity: 0.7; }
+        100% { opacity: 0.2; }
+    }
+
+    @keyframes pulse {
+        0% { opacity: 0.1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 0.1; }
+    }
+
+
+    header {
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: #58a6ff;
+    }
+
+    .logo svg {
+        animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+        margin: 0;
+        background: linear-gradient(90deg, #58a6ff, #bc8cff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+  
+    main {
+        flex: 1;
+    }
+
+    .hero {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(90deg, #58a6ff, #bc8cff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #8b949e;
+    }
+
+
+    .search-section {
+        margin-bottom: 4rem;
+    }
+
+    .search-container {
+        display: flex;
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .search-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border: 1px solid #30363d;
+        background-color: #0d1117;
+        color: #c9d1d9;
+        border-radius: 6px 0 0 6px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+        border-color: #58a6ff;
+    }
+
+    input.error {
+        border-color: #f85149;
+    }
+
+    button {
+        padding: 1rem 2rem;
+        background-color: #238636;
+        color: white;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        min-width: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button:hover {
+        background-color: #2ea043;
+    }
+
+    button.loading {
+        background-color: #238636;
+        cursor: not-allowed;
+    }
+
+    .spinner {
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .error-message {
+        color: #f85149;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .feature {
+        background-color: #161b22;
+        border-radius: 6px;
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #30363d;
+    }
+
+    .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        border-color: #58a6ff;
+    }
+
+    .feature-icon {
+        background-color: rgba(88, 166, 255, 0.1);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        color: #58a6ff;
+    }
+
+    .feature h3 {
+        margin-top: 0;
+        color: #e6edf3;
+    }
+
+    .feature p {
+        color: #8b949e;
+        margin-bottom: 0;
+    }
+
+
+    footer {
+        margin-top: 4rem;
+        text-align: center;
+        color: #8b949e;
+        padding: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+        }
+
+        .search-container {
+            flex-direction: column;
+        }
+
+        input {
+            border-radius: 6px 6px 0 0;
+        }
+
+        button {
+            border-radius: 0 0 6px 6px;
+            width: 100%;
+        }
+
+        .features {
+            grid-template-columns: 1fr;
+        }
+    }
