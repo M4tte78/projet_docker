@@ -24,6 +24,19 @@ class GithubController {
       res.status(500).json({ error: "Échec de la récupération des dépôts clonés", details: err.message });
     }
   } 
+
+  static async deleteRepository(req, res) {
+    const { id } = req.params;
+    try {
+      const result = await GitHubModel.deleteRepoById(id);
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ error: "Dépôt non trouvé." });
+      }
+      res.status(200).json({ message: "Dépôt supprimé avec succès." });
+    } catch (err) {
+      res.status(500).json({ error: "Échec de la suppression du dépôt", details: err.message });
+    }
+  }
 }
 
 export default GithubController;

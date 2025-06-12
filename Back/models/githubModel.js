@@ -16,7 +16,13 @@ class GitHubModel {
         const query = 'SELECT * FROM repos';
         const [results] = await connexion.query(query);
         return results;
-    }    
+    } 
+    
+    static async deleteRepoById(id) {
+        const query = 'DELETE FROM repos WHERE id = ?';
+        const [results] = await connexion.query(query, [id]);
+        return results;
+    }
 }
 
 export default GitHubModel;
