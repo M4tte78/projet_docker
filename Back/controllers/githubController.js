@@ -16,6 +16,14 @@ class GithubController {
       res.status(500).json({ error: "Échec du clonage", details: err.message });
     }
   }
+  static async getClonedRepositories(req, res) {
+    try {
+      const repos = await GitHubModel.getClonedRepositories();
+      res.status(200).json(repos);
+    } catch (err) {
+      res.status(500).json({ error: "Échec de la récupération des dépôts clonés", details: err.message });
+    }
+  } 
 }
 
 export default GithubController;

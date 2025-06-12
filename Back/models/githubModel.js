@@ -11,6 +11,12 @@ class GitHubModel {
             return results;
         });
     }
+
+    static async getClonedRepositories() {
+        const query = 'SELECT * FROM repos';
+        const [results] = await connexion.query(query);
+        return results;
+    }    
 }
 
 export default GitHubModel;
