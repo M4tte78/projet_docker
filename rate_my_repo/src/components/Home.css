@@ -305,8 +305,8 @@ button.loading {
 	padding: 2rem;
 	color: #c9d1d9;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-	width: 550px;
-	max-height: 90vh;
+	width: 20rem;
+  max-height: 40rem;
 	overflow-y: auto;
 }
 
