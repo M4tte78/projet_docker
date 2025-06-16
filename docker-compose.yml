@@ -29,6 +29,7 @@ services:
       - DB_USER=root
       - DB_PASSWORD=rootpass
       - DB_NAME=rate_my_repo
+      - GROQ_API_KEY=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
 
   db:
     image: mysql:8.0
