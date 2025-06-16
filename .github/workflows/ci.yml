@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /chemin/vers/ton/projet
+            cd /var/www/projet_docker
             git pull origin main
             docker-compose down
             docker-compose up --build -d
