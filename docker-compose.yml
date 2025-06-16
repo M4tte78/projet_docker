@@ -21,8 +21,6 @@ services:
       - db
     networks:
       - app-network
-    volumes:
-      - ./Back:/app
     environment:
       - DB_HOST=db
       - DB_PORT=3306
