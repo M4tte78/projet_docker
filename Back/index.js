@@ -10,6 +10,10 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.json('Hello World!');
 });
+app.post('/manote' ,(req, res) => {
+    const { note, nomDugars } = req.body;
+    console.log(`Note: ${note}, Nom du Gars: ${nomDugars}`);
+});
 
 app.use('/repos', githubRoutes);
 app.use('/groq', groqRoutes);
