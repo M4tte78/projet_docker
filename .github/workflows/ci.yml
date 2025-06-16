@@ -16,7 +16,7 @@ jobs:
       - name: Install Node.js (for tests)
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # ou autre version compatible avec ton projet
+          node-version: '18'  
 
       - name: Install dependencies and run tests in /Back
         working-directory: ./Back
