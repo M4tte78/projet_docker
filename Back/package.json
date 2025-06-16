@@ -1,0 +1,25 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "fast-glob": "^3.3.3",
+    "groq-sdk": "^0.23.0",
+    "jest": "^30.0.0",
+    "mysql2": "^3.14.1",
+    "nodemon": "^3.1.10",
+    "simple-git": "^3.28.0"
+  }
+}
