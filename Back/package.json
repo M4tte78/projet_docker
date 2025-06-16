@@ -11,6 +11,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
+  "jest": {
+    "testPathIgnorePatterns": ["/node_modules/", "/clonedRepositories/"]
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
