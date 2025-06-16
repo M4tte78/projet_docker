@@ -1,28 +1,37 @@
-
-
-name: CI - Build and Deploy Docker Compose
+name: CI - Test and Deploy to Server
 
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
-  docker:
+  test-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - name: Install Node.js (for tests)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # ou autre version compatible avec ton projet
 
-      - name: Install Docker Compose
+      - name: Install dependencies and run tests in /Back
+        working-directory: ./Back
         run: |
-          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-          docker-compose version
+          npm install
+          npm test
 
-      - name: Build and start containers
-        run: docker-compose up --build -d
+      - name: Deploy to Remote Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /chemin/vers/ton/projet
+            git pull origin main
+            docker-compose down
+            docker-compose up --build -d
