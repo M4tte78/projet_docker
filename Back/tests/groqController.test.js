@@ -9,7 +9,7 @@ jest.unstable_mockModule('fs', () => ({
     statSync: (...args) => mockStatSync(...args),
     readFileSync: (...args) => mockReadFileSync(...args)
   }
-}));
+} ));
 
 jest.unstable_mockModule('fast-glob', () => ({
   default: (...args) => mockFg(...args)
